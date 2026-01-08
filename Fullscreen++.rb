@@ -382,11 +382,11 @@ class Sprite
   def transition?() !!@transition_data end
   def transition(duration = $vxace ? 10 : 8, filename='', vague=40, gradient='')
     return if @transition_data or !bitmap or bitmap.disposed?
-    transition_bmp = Cache.load_bitmap('Graphics/Transitions/', File.basename(filename)) unless filename.empty? or !Zeus::DLL.Fullscreen.exist?(:Transition)
+    transition_bmp = Cache.load_bitmap('Graphics/System/', File.basename(filename)) unless filename.empty? or !Zeus::DLL.Fullscreen.exist?(:Transition)
     transition_bmp = nil if transition_bmp and (transition_bmp.width < width or transition_bmp.height < height)
     if transition_bmp
       self.bitmap, self.src_rect = bitmap.dup, src_rect.dup if bitmap.cached?
-      gradient_bmp = Cache.load_bitmap('Graphics/Transitions/', File.basename(gradient)) unless gradient.empty?
+      gradient_bmp = Cache.load_bitmap('Graphics/System/', File.basename(gradient)) unless gradient.empty?
     end
     @transition_data = [0, duration, bitmap, transition_bmp, gradient_bmp, @@vague[Math.mid(1, vague, 255)]]
     nil
