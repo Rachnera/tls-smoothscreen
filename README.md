@@ -26,8 +26,11 @@ Effect1=FSR() RAA() SimpleScale()
 ## Behavior
 
 F5 works as previously
+
 F6 does not do anything anymore
-You can switch between different anti-aliasing configuration with Ctrl+F11
+
+You can switch between different anti-aliasing configuration with Ctrl+F11.
+
 Rather than using keyboard shortcuts, everything can now be changed in the settings
 
 ## Known issues
@@ -37,4 +40,5 @@ If you switch between display options using the keyboard shortcuts while on the 
 ## Credits
 
 Fullscreen script by Zeus81: https://forums.rpgmakerweb.com/index.php?threads/fullscreen-new-version-4.14081/
+
 Config by JollyRogerQZR
