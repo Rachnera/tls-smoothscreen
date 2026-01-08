@@ -423,6 +423,13 @@ class Sprite
   end
 end
 
+module SceneManager
+  def self.exit
+    @scene = nil
+    Graphics.shutdown
+  end
+end
+
 Zeus::OS.dpi_awareness = 2 # PROCESS_PER_MONITOR_DPI_AWARE
 Graphics.after_update &Graphics.method(:update_fullscreen)
 Graphics.load_settings
