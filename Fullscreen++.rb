@@ -35,7 +35,9 @@
 =end
 
 steam_app_id = 0
-exit if -1 == r = Zeus::DLL.Fullscreen.exist? ? Zeus::DLL.Fullscreen.Steam_Initialize(steam_app_id) : 0
+# Disable Steam-related features
+# exit if -1 == r = Zeus::DLL.Fullscreen.exist? ? Zeus::DLL.Fullscreen.Steam_Initialize(steam_app_id) : 0
+r = 0
 $STEAM = r == 1
 
 ($imported ||= {})[:Zeus_Fullscreen] = __FILE__
