@@ -32,7 +32,7 @@ Rather than using keyboard shortcuts, everything can now be changed in the setti
 
 ## Known issues
 
-If you switch between fullscreen and windowed while on the settings screen, the displayed value isn't refreshed.
+If you switch between display options using the keyboard shortcuts while on the settings screen, the displayed values aren't instantly refreshed.
 
 ## Credits
 
