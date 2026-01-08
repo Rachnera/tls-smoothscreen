@@ -1,9 +1,9 @@
 ﻿=begin
   Fullscreen++ v4.0.1 for XP, VX and VXace by Zeus81
+  Edited by Rachnera, see https://github.com/Rachnera/tls-smoothscreen/commits/main/Fullscreen%2B%2B.rb for list of changes
   
   User guide:
-            F11 : toggle fullscreen
-    Shift + F11 : switch aspects (stretch - keep ratio - integer)
+             F5 : toggle fullscreen
     Ctrl  + F11 : switch effects (setup effects in Game.ini)
     
   Shaders:
@@ -121,14 +121,19 @@ module Graphics
     end
     def update_fullscreen
       (frame_reset; zeus_update; self.frame_count -= 1) until focus?
-      if 1 == @F11 = Zeus::DLL.User32.GetAsyncKeyState(122)[15] == 1 ? @F11==0 ? 1 : 2 : 0
-        case (Input.press?(:SHIFT) ? 1 : 0) | (Input.press?(:CTRL) ? 2 : 0) | (Input.press?(:ALT) ? 4 : 0)
-        when 2; @effect_id   = (@effect_id   + 1) % @effects.size
-        when 1; @keep_aspect = (@keep_aspect + 1) % 3
-        when 0; toggle_fullscreen!
-        end
+
+      if 1 == (@F5 = Zeus::DLL.User32.GetAsyncKeyState(116)[15] == 1 ? (@F5==0 ? 1 : 2) : 0)
+        toggle_fullscreen!
         save_settings
       end
+
+      if 1 == @F11 = Zeus::DLL.User32.GetAsyncKeyState(122)[15] == 1 ? @F11==0 ? 1 : 2 : 0
+        if Input.press?(:CTRL)
+          @effect_id   = (@effect_id   + 1) % @effects.size
+          save_settings
+        end
+      end
+
       if @background_hash != @background.hash
         @background[2] = !@background[0].empty? && (Cache.picture(@background[0]) rescue nil)
         bitmap_address = @background[2] ? @background[2].to_int : 0
