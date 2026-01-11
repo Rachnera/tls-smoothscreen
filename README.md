@@ -4,7 +4,7 @@ Scripts:
 - Comment out old fullscreen script with Ctrl+A/Ctrl+Q (or remove it entirely if feeling confident)
 - Add Zeus Module.rb
 - Add Fullscreen++.rb
-- Add Fullscreen Settings.rb
+- Add Fullscreen Settings.rb after all other scripts adding settings or altering keybindings
 
 Other files:
 - Add Fullscreen.dll to the game folder (root level, same as the steam_api.dll)
