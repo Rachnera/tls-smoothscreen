@@ -47,7 +47,7 @@ The only difference between the .exe provided here and the one used until now is
 
 While the new shaders are powerful, they also are too resource-intensive to run smoothly on the modest performances of a non-dedicated card, leading to ostensible lag. The problem disappears when switching to dedicated but there's really only one way to tell the OS to do that automatically and it's to flag the exe itself. Hence why it has to be replaced.
 
-In practice, all I did was take the original exe and run (https://github.com/toptensoftware/nvpatch)[nvpatch] on it. See https://www.toptensoftware.com/blog/nvpatch-how-it-works/ for a more in-depth explanation of how it works.
+In practice, all I did was take the original exe and run [nvpatch](https://github.com/toptensoftware/nvpatch) on it. See https://www.toptensoftware.com/blog/nvpatch-how-it-works/ for a more in-depth explanation of how it works.
 
 ## Credits
 
