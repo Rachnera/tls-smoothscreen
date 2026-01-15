@@ -430,6 +430,19 @@ module SceneManager
   end
 end
 
+# Unsubtle fix for sound effects getting gobbled when in quick succession
+class RPG::SE < RPG::AudioFile
+  # See Yanfly System Options for "original"
+  def play
+    unless @name.empty?
+      volume = @volume
+      volume *= $game_system.volume(:sfx) * 0.01 unless $game_system.nil?
+      Audio.se_stop # Added line
+      Audio.se_play('Audio/SE/' + @name, volume, @pitch)
+    end
+  end
+end
+
 Zeus::OS.dpi_awareness = 2 # PROCESS_PER_MONITOR_DPI_AWARE
 Graphics.after_update &Graphics.method(:update_fullscreen)
 Graphics.load_settings
