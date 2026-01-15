@@ -431,15 +431,11 @@ module SceneManager
 end
 
 # Unsubtle fix for sound effects getting gobbled when in quick succession
-class RPG::SE < RPG::AudioFile
-  # See Yanfly System Options for "original"
-  def play
-    unless @name.empty?
-      volume = @volume
-      volume *= $game_system.volume(:sfx) * 0.01 unless $game_system.nil?
-      Audio.se_stop # Added line
-      Audio.se_play('Audio/SE/' + @name, volume, @pitch)
-    end
+class Window_Selectable < Window_Base
+  alias zeus_window_selectable_process_ok process_ok
+  def process_ok
+    Audio.se_stop
+    zeus_window_selectable_process_ok
   end
 end
 
