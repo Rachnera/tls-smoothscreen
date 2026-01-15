@@ -9,7 +9,7 @@ Scripts:
 Other files:
 - Rename Game.exe to Game.old.exe (or delete if feeling really confident)
 - Add the Game.exe of this repository in its stead
-- Add Fullscreen.dll to the game folder (root level, same as the steam_api.dll)
+- Add Fullscreen.dll to System/ (next to RGSS301.dll)
 - Edit Game.ini and replace the [Fullscreen++] section with:
 ```
 [Fullscreen++]
