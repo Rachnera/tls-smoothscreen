@@ -440,6 +440,16 @@ class Window_Selectable < Window_Base
 end
 
 Zeus::OS.dpi_awareness = 2 # PROCESS_PER_MONITOR_DPI_AWARE
-Graphics.after_update &Graphics.method(:update_fullscreen)
+
+module Graphics
+  class << self
+    alias zeus_update_2 update unless method_defined?(:zeus_update_2)
+    def update
+      zeus_update_2
+      Graphics.update_fullscreen
+    end
+  end
+end
+
 Graphics.load_settings
 Graphics.update_fullscreen
