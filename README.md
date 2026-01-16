@@ -1,15 +1,21 @@
 ## Setup
 
-Scripts:
-- Comment out old fullscreen script with Ctrl+A/Ctrl+Q (or remove it entirely if feeling confident)
-- Add Zeus Module.rb
-- Add Fullscreen++.rb
-- Add Fullscreen Settings.rb after all other scripts adding settings or altering keybindings
+### Scripts
 
-Other files:
-- Rename Game.exe to Game.old.exe (or delete if feeling really confident)
-- Add the Game.exe of this repository in its stead
-- Add Fullscreen.dll to System/ (next to RGSS301.dll)
+First, the old fullscreen script is to be commented out (Ctrl+A/Ctrl+Q), or even removed entirely if feeling confident, as it would conflict with the new one.
+
+Then, add the following scripts, as usual in that order and at the bottom of all other custom scripts but before Main:
+- Zeus Module.rb
+- Fullscreen++.rb
+- Fullscreen Settings.rb
+
+### Other files
+
+First, backup the existing Game.exe and Game.ini somewhere else. Better safe than sorry.
+
+Then:
+- Replace Game.exe with the one available in this repository
+- Add Fullscreen.dll to the System/ folder, next to RGSS301.dll
 - Edit Game.ini and replace the [Fullscreen++] section with:
 ```
 [Fullscreen++]
