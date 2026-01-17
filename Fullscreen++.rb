@@ -431,11 +431,25 @@ module SceneManager
 end
 
 # Unsubtle fix for sound effects getting gobbled when in quick succession
-class Window_Selectable < Window_Base
-  alias zeus_window_selectable_process_ok process_ok
-  def process_ok
+module Sound
+  def self.play_cursor
     Audio.se_stop
-    zeus_window_selectable_process_ok
+    play_system_sound(0)
+  end
+
+  def self.play_ok
+    Audio.se_stop
+    play_system_sound(1)
+  end
+
+  def self.play_cancel
+    Audio.se_stop
+    play_system_sound(2)
+  end
+
+  def self.play_buzzer
+    Audio.se_stop
+    play_system_sound(3)
   end
 end
 
