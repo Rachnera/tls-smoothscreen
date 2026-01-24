@@ -16,20 +16,7 @@ First, backup the existing Game.exe and Game.ini somewhere else. Better safe tha
 Then:
 - Replace Game.exe with the one available in this repository
 - Add Fullscreen.dll to the System/ folder, next to RGSS301.dll
-- Edit Game.ini and replace the [Fullscreen++] section with:
-```
-[Fullscreen++]
-Fullscreen=true
-VSync=true
-BlackFrame=false
-KeepAspect=1
-Overscan=0.0
-BackEffect=
-BackAspect=0
-EffectId=1
-Effect0=SimpleScale()
-Effect1=FSR() RAA() SimpleScale()
-```
+- Edit Game.ini and remove the [Fullscreen++] section and all its contents (the section will be automatically created with the default values on game launch)
 
 ## Behavior
 

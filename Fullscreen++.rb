@@ -465,5 +465,28 @@ module Graphics
   end
 end
 
+
+# If no fullscreen config is detected, initialize it with more on point default values
+
+Zeus::FULLSCREEN_DEFAULT_CONFIG = '
+Fullscreen=true
+VSync=true
+BlackFrame=false
+KeepAspect=1
+Overscan=0.0
+BackEffect=
+BackAspect=0
+EffectId=1
+Effect0=SimpleScale()
+Effect1=FSR() RAA() SimpleScale()
+';
+
+if !Zeus::Ini.sections(Zeus::OS.ini_name).include?('Fullscreen++')
+  Zeus::FULLSCREEN_DEFAULT_CONFIG.strip.split(/\n+/).each do |line|
+    key, value = line.split('=')
+    Zeus::Ini.write(Zeus::OS.ini_name, 'Fullscreen++', key, value || '')
+  end
+end
+
 Graphics.load_settings
 Graphics.update_fullscreen
